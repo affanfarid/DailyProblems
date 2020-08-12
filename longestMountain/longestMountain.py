@@ -69,25 +69,50 @@ def longestMountain(arr):
   longest = 0
   currLongest = 0
   falling = False
+  #mountain is a bool variable which indicates if the current mountain is valid
+  #it becomes invalid if theres a plataeu on the mountain
+  mountain = False
 
   #loop through array except last one
   for x in range(len(arr)-1):
     #rising
     if arr[x] < arr[x+1]:
+      # print("rising")
       currLongest += 1
+
       #if it was falling and now is rising again, the mountain ended
       if falling:
         #update the longest and reset the other values
-        longest = max(longest,currLongest)
+        if mountain:
+          longest = max(longest,currLongest)
         currLongest = 1
         falling = False
+      mountain = True
 
     #falling
-    if arr[x] > arr[x+1]:
+    if arr[x] > arr[x+1] and mountain:
+      # print("falling")
       falling = True
       currLongest += 1
 
-  #in case the array ends with the mountain
-  return max(longest,currLongest+1)
+    #plataeu, reset
+    if arr[x] == arr[x+1]:
+      # print("plataeu")
+      
+      if falling and mountain:
+        longest = max(longest,currLongest+1)
+        falling = False
+      mountain = False
+      currLongest = 0
+    
+    # print("val: " + str(arr[x]))
+    # print("currLongest: " + str(currLongest))
+
+  #in case the array ends with the mountain and the mountain is valid
+  if arr[-1] < arr[-2] and mountain:
+    currLongest += 1
+    longest = max(longest,currLongest)
+
+  return longest
 
 
