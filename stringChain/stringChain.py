@@ -114,7 +114,7 @@ def stringChainRec(arr,word,currLen,maxString):
     #print(f"word: {word} . arr[x]: {arr[x]} ")
 
     #removes word from the array and makes recursive call increasing the string length
-    if validChain(word,arr[x]):
+    if validChain2(word,arr[x]):
       stringChainRec(arr[:x]+arr[x+1:], arr[x], currLen+1, maxString)
 
 
