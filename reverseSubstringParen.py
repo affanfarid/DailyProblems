@@ -33,5 +33,37 @@ Output: "apmnolkjihgfedcbq"
 
 '''
 
+'''
+strat:
+have a begin. where it senses the beginning (
+    then it loops through the rest to find its end.
+    if it finds another ( then recursively call itself. 
+
+when it finds ). it flips from the beginning of the string.
+
+'''
+
+
+
+def func1(input):
+    return flipperHelper(input)
+
+
+def flipperHelper(input):
+    for x in range(len(input)):
+        if input[x] == "(":
+            temp = flipperHelper(input[x+1:])
+            input = input[:x] + temp
+            #???? v
+            x += 1
+        if input[x] == ")":
+            rev = input[:x] 
+            return rev[::-1] + input[x+1:]
+
+
+test1 = "a(bcdefghijkl(mno)p)q"
+print(func1(test1))
+        
+
 
 
