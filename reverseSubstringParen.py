@@ -50,14 +50,17 @@ def func1(input):
 
 
 def flipperHelper(input):
+    print(input)
     for x in range(len(input)):
+        print(x)
         if input[x] == "(":
             temp = flipperHelper(input[x+1:])
             input = input[:x] + temp
             #???? v
             x += 1
         if input[x] == ")":
-            rev = input[:x] 
+            rev = input[:x]
+            print(rev) 
             return rev[::-1] + input[x+1:]
 
 
