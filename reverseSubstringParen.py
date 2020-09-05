@@ -50,22 +50,34 @@ def func1(input):
 
 
 def flipperHelper(input):
-    print(input)
-    for x in range(len(input)):
-        print(x)
+    #print(input)
+    inputLength = len(input)
+    for x in range(inputLength):
+        if x == len(input):
+            return input
+        #print(x)
         if input[x] == "(":
             temp = flipperHelper(input[x+1:])
             input = input[:x] + temp
-            #???? v
-            x += 1
-        if input[x] == ")":
+            #print(f"new input: {input}")
+            x -= 2
+            inputLength -= 1
+        elif input[x] == ")":
             rev = input[:x]
-            print(rev) 
+            #print(rev) 
             return rev[::-1] + input[x+1:]
 
 
 test1 = "a(bcdefghijkl(mno)p)q"
-print(func1(test1))
+test2 = "a(bcd)e"
+test3 = "(abcd)"
+test4 = "(ed(et(oc))el)"
+test5 = "(u(love)i)"
+print(func1(test1)) #apmnolkjihgfedcbq
+print(func1(test2)) #adcbe
+print(func1(test3)) #dcba
+print(func1(test4)) #leetcode
+print(func1(test5)) #iloveu
         
 
 
