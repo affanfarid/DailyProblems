@@ -34,7 +34,8 @@ def pangrams(s):
         letterDict[x] = 0
     
     for y in s:
-        letterDict[letter(y)] += 1
+        if y.lower() in alphabet:
+            letterDict[y.lower()] += 1
         
     for z in letterDict:
         if letterDict[z] == 0:
@@ -42,14 +43,18 @@ def pangrams(s):
     return True
 
 
-if __name__ == '__main__':
-    fptr = open(os.environ['OUTPUT_PATH'], 'w')
+print(pangrams("The quick brown fox jumps over the lazy dog"))
+print(pangrams("The fox jumps over the lazy dog"))
 
-    s = input()
 
-    result = pangrams(s)
+# if __name__ == '__main__':
+#     fptr = open(os.environ['OUTPUT_PATH'], 'w')
 
-    fptr.write(result + '\n')
+#     s = input()
 
-    fptr.close()
+#     result = pangrams(s)
+
+#     fptr.write(result + '\n')
+
+#     fptr.close()
 
