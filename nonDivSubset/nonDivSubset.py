@@ -1,0 +1,2 @@
+def nonDivSubset(arr,k):
+    
