@@ -40,5 +40,3 @@ def efficientJanitor(weight):
     return count
 
 
-
-if __name__ == '__main__':

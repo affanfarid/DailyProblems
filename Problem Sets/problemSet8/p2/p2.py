@@ -48,8 +48,3 @@ def prison(n, m, h, v):
     return gapH * gapV
     
 
-
-
-
-
-if __name__ == '__main__':

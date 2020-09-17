@@ -47,4 +47,3 @@ def findMinDistance(w, h, n):
 
     return ans
 
-if __name__ == '__main__':
