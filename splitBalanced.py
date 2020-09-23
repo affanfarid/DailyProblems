@@ -34,3 +34,23 @@ Explanation: s can be split into "RL", "RRRLLRLL", since each substring contains
 
 
 '''
+
+'''
+strat:
+
+'''
+
+
+def splitBalanced(word):
+    return
+
+def splitBalancedRec(word,arr):
+    numL = 0
+    numR = 0
+    for x in word:
+        if x == 'L':
+            numL += 1
+        elif x == 'R':
+            numR += 1
+        if numL == numR and numL != 0:
+            #TODO
