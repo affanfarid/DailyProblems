@@ -42,15 +42,28 @@ strat:
 
 
 def splitBalanced(word):
-    return
+    totalArr = [0]
+    splitBalancedRec(word,totalArr)
+    return totalArr[0]
 
 def splitBalancedRec(word,arr):
     numL = 0
     numR = 0
-    for x in word:
-        if x == 'L':
+    if len(word) == 0:
+        return 
+
+    for x in range(len(word)):
+        if word[x] == 'L':
             numL += 1
-        elif x == 'R':
+        elif word[x] == 'R':
             numR += 1
         if numL == numR and numL != 0:
-            #TODO
+            arr[0] += 1
+            splitBalancedRec(word[x+1:],arr)
+            break
+
+
+print(splitBalanced("RLRRLLRLRL")) #4
+print(splitBalanced("RLLLLRRRLR")) #3
+print(splitBalanced("LLLLRRRR")) #1
+print(splitBalanced("RLRRRLLRLL")) #2
