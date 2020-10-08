@@ -1,5 +1,6 @@
 def maximizeXor(l,r):
     maxXor = 0
+    #unfinished
     for x in range(l,r+1):
         for y in range(x,r+1):
             num1 = '0b' + bin(x)
