@@ -1,0 +1,2 @@
+def beautifulDays():
+    return
